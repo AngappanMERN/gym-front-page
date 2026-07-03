@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gutim Fitness | BMI Calculator</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="index.html" class="logo">Gu<span>tim</span>.</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="classes.html">Classes</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="contact.html">Contacts</a></li>
+      <li><a href="bmi-calculator.html" class="active">BMI Calculator</a></li>
+    </ul>
+    <a href="contact.html" class="signup-btn">Sign Up Today</a>
+    <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<section class="hero inner-hero" style="background-image:url('https://images.unsplash.com/photo-1599058917212-d750089bc07e?auto=format&fit=crop&w=1470&q=80');">
+  <div class="hero-content">
+    <p class="subheading">Fitness Elements</p>
+    <h1>BMI CALCULATOR</h1>
+    <p class="description">Gutim's BMI calculator gives you a quick, private starting point before you plan your program.</p>
+    <p class="breadcrumb"><a href="index.html">Home</a> / BMI Calculator</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="bmi-card">
+      <div class="bmi-toggle">
+        <button type="button" class="active" data-unit="metric">Metric (cm / kg)</button>
+        <button type="button" data-unit="imperial">Imperial (ft·in / lb)</button>
+      </div>
+
+      <form id="bmi-form">
+        <div id="metric-fields">
+          <div class="form-group">
+            <label for="height-cm">Height (cm)</label>
+            <input type="number" id="height-cm" min="50" max="250" placeholder="e.g. 172">
+          </div>
+          <div class="form-group">
+            <label for="weight-kg">Weight (kg)</label>
+            <input type="number" id="weight-kg" min="20" max="300" placeholder="e.g. 68">
+          </div>
+        </div>
+
+        <div id="imperial-fields" style="display:none;">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="height-ft">Height (ft)</label>
+              <input type="number" id="height-ft" min="1" max="8" placeholder="e.g. 5">
+            </div>
+            <div class="form-group">
+              <label for="height-in">Height (in)</label>
+              <input type="number" id="height-in" min="0" max="11" placeholder="e.g. 8">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="weight-lb">Weight (lb)</label>
+            <input type="number" id="weight-lb" min="40" max="660" placeholder="e.g. 150">
+          </div>
+        </div>
+
+        <button type="submit" class="btn" style="width:100%;">Calculate BMI</button>
+      </form>
+
+      <div class="bmi-result">
+        <div class="bmi-value">--</div>
+        <div class="bmi-category">--</div>
+        <div class="bmi-scale">
+          <span class="scale-under"></span>
+          <span class="scale-normal"></span>
+          <span class="scale-over"></span>
+          <span class="scale-obese"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid grid-3" style="margin-top:70px;">
+      <div class="card">
+        <div class="card-body">
+          <h3>Under 18.5</h3>
+          <p>Underweight. A coach can help build a program that adds strength and healthy mass.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3>18.5 – 24.9</h3>
+          <p>Normal range. A solid base for building strength, endurance or performance goals.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h3>25 and above</h3>
+          <p>Overweight or obese range. Our coaches can build a program focused on sustainable progress.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="description" style="max-width:700px;margin-top:40px;">BMI is a screening tool based on height and weight only — it doesn't account for muscle mass, bone density or body composition. Use it as a starting point, and talk to one of our coaches for a fuller picture of your fitness.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a href="index.html" class="logo">Gu<span>tim</span>.</a>
+        <p>A coaching-first training studio for people who want a plan, not just a treadmill. Strength, conditioning and recovery under one roof.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Facebook">f</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="Twitter">tw</a>
+          <a href="#" aria-label="YouTube">yt</a>
+        </div>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="classes.html">Classes</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="bmi-calculator.html">BMI Calculator</a></li>
+          <li><a href="contact.html">Book a Session</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Studio Hours</h4>
+        <ul>
+          <li>Mon – Fri: 6:00am – 9:00pm</li>
+          <li>Saturday: 8:00am – 6:00pm</li>
+          <li>Sunday: 9:00am – 2:00pm</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Gutim Fitness. All rights reserved. Built with <span>♥</span> for people who show up.
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

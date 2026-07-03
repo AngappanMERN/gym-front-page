@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arttavive — Creative Gym & Fitness</title>
+    <link rel="stylesheet" href="gym webpage.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">Arta<span>vive</span></div>
+        <button id="navToggle" class="nav-toggle" aria-label="open navigation" aria-expanded="false" aria-controls="main-nav" onclick="toggleMenu()">☰</button>
+        <ul id="main-nav" class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="signup-btn">Get Started</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-content">
+          <p class="subheading">Creative Fitness</p>
+          <h1>Train Your Body. Inspire Your Mind.</h1>
+          <p class="description">Arttavive blends fitness and creativity — programs, workshops and a community for active minds.</p>
+          <a href="#services" class="readmore-btn">Explore Programs</a>
+        </div>
+      </section>
+
+      <section id="about" class="section about">
+        <div class="container">
+          <h2>About Arttavive</h2>
+          <p>Arttavive is a boutique fitness experience focused on holistic wellbeing, creative movement, and small-group training. We design programs that pair physical training with artistic expression.</p>
+        </div>
+      </section>
+
+      <section id="services" class="section services">
+        <div class="container">
+          <h2>Programs</h2>
+          <div class="cards">
+            <article class="card">
+              <h3>Group Classes</h3>
+              <p>High-energy functional classes with creative choreography and music.</p>
+            </article>
+            <article class="card">
+              <h3>Personal Training</h3>
+              <p>Custom plans blending strength, mobility and creative movement.</p>
+            </article>
+            <article class="card">
+              <h3>Workshops</h3>
+              <p>Weekend workshops combining art, dance, and fitness for self-expression.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery" class="section gallery">
+        <div class="container">
+          <h2>Gallery</h2>
+          <div class="grid">
+            <img src="https://source.unsplash.com/collection/483251/800x600" alt="gallery image 1">
+            <img src="https://source.unsplash.com/collection/483251/801x600" alt="gallery image 2">
+            <img src="https://source.unsplash.com/collection/483251/802x600" alt="gallery image 3">
+            <img src="https://source.unsplash.com/collection/483251/803x600" alt="gallery image 4">
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div class="container">
+          <h2>Contact</h2>
+          <p>Interested in joining or collaborating? Send us a message.</p>
+          <form id="contactForm" class="contact-form" action="mailto:info@arttavive.example" method="post" enctype="text/plain">
+            <div class="form-row">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" required>
+            </div>
+            <div class="form-row">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required>
+            </div>
+            <div class="form-row">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">© 2026 Arttavive — All rights reserved.</div>
+    </footer>
+
+    <script>
+      // Enhanced nav toggle and smooth scrolling
+      const toggle = document.getElementById('navToggle') || document.querySelector('.nav-toggle');
+      const navLinks = document.getElementById('main-nav') || document.querySelector('.nav-links');
+      const navAnchors = document.querySelectorAll('.nav-links a');
+
+      // Fallback toggle function bound to inline onclick to cover stubborn mobile browsers
+      function toggleMenu(){
+        const isOpen = navLinks.classList.contains('open');
+        setNavOpen(!isOpen);
+        console.log('toggleMenu called, now open=', !isOpen);
+      }
+
+      function setNavOpen(open){
+        if (open) navLinks.classList.add('open'); else navLinks.classList.remove('open');
+        toggle && toggle.setAttribute('aria-expanded', String(Boolean(open)));
+      }
+
+      toggle && toggle.addEventListener('click', () => {
+        setNavOpen(!navLinks.classList.contains('open'));
+      });
+
+      // Close nav on link click (mobile) and smooth-scroll to sections
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+          const href = a.getAttribute('href');
+          if (href && href.startsWith('#')) {
+            e.preventDefault();
+            const id = href.slice(1);
+            const el = document.getElementById(id);
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (window.innerWidth <= 640) setNavOpen(false);
+          }
+        });
+      });
+
+      // Close menu on escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') setNavOpen(false);
+      });
+
+      // Basic client-side form validation and UX
+      const form = document.getElementById('contactForm');
+      form && form.addEventListener('submit', (e) => {
+        const email = document.getElementById('email');
+        if (!email.checkValidity()) {
+          e.preventDefault();
+          alert('Please enter a valid email address');
+        } else {
+          // Let mailto fallback proceed; show quick thank you
+          setTimeout(() => alert('Thanks — your message will open in your mail client.'), 100);
+        }
+      });
+    </script>
+  </body>
+</html>
